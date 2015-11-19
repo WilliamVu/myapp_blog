@@ -13,9 +13,7 @@
           	= f.input :address, placeholder: 'Địa Chỉ Cá Nhân'
           	= f.input :phone, placeholder: 'Số điện thoại', label: 'Phone Number'
           	= f.input :ages, placeholder: 'Tuổi', label: 'Age Group'
-          	= f.label :about_me
-          
-          	= f.text_area :about_me, placeholder: 'Thông tin thêm về bản thân', class: 'form-control', row: '5'
+          	= f.input :about_me, as: :ckeditor, placeholder: 'Thông tin thêm về bản thân'
             br
           	= f.label :profile_image, "Avatar"
           

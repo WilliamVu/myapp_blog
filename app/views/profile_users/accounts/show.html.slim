@@ -21,8 +21,7 @@
 						.form-group = f.input :gender, collection: User.genders.keys, label: 'Giới Tính'
 						.form-group = f.input :address
 						.form-group = f.input :ages, label: 'Age'
-						.form-group = f.label :about_me
-						.form-group = f.text_area :about_me, class: 'form-control', row: '5'
+						.form-group = f.input :about_me, as: :ckeditor
 
 						= f.submit 'CẬP NHẬT THÔNG TIN', method: :put, class: 'btn btn-primary'
 
