@@ -1,0 +1,49 @@
+.container
+	.col-md-10.col-md-offset-1
+		.well
+			.row
+				.col-md-12
+					h3.lined-heading align="center"
+						span Thông Tin Cá Nhân
+			br
+			.row
+				= simple_form_for @user, url: profile_users_account_path do |f|
+					.col-md-6
+						.thumbnail = attachment_image_tag(@user, :profile_image, :fill, 300, 300, format: "jpg", fallback: "default_avatar.png", class: 'img-circle')
+
+						span Chọn 1 Ảnh Đại Diện Khác
+						= f.file_field :profile_image, class: 'form-control'
+
+					.col-md-6
+						.form-group = f.input :name
+						.form-group = f.input :email, disable: true
+						.form-group = f.input :phone
+						.form-group = f.input :gender, collection: User.genders.keys, label: 'Giới Tính'
+						.form-group = f.input :address
+						.form-group = f.input :ages, label: 'Age'
+						.form-group = f.label :about_me
+						.form-group = f.text_area :about_me, class: 'form-control', row: '5'
+
+						= f.submit 'CẬP NHẬT THÔNG TIN', method: :put, class: 'btn btn-primary'
+
+.container
+	.col-md-10.col-md-offset-1
+		.well
+			.row
+				.col-md-12
+					h3.lined-heading align="center"
+						span Password
+			br
+			.row 
+				= simple_form_for @user, url: profile_users_account_path, html: { class: 'form' } do |f|
+					.col-md-8.col-md-offset-2
+						
+						.form-group = f.input :current_password
+						.form-group = f.input :password
+						.form-group = f.input :password_confirmation
+						
+
+						= f.submit 'CẬP NHẬT THÔNG TIN', class: 'btn btn-primary'
+
+		
+

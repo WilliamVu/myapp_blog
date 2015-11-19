@@ -17,8 +17,8 @@
           
           	= f.text_area :about_me, placeholder: 'Thông tin thêm về bản thân', class: 'form-control', row: '5'
             br
-          	= f.label :profile_image_id, "Avatar"
+          	= f.label :profile_image, "Avatar"
           
-          	= f.file_field :profile_image_id, style: "width: 100%", class: 'form-control'
+          	= f.attachment_field :profile_image, style: "width: 100%", class: 'form-control'
             br
           	= f.submit "ĐĂNG KÝ", class: 'btn btn-primary form-control'

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :gender, :address, :phone, :ages, :about_me, :profile_image_id)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :gender, :address, :phone, :ages, :about_me, :profile_image)
 	end
 
 	def redirect_path
