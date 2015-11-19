@@ -1,0 +1,38 @@
+nav.navbar.navbar-default
+  .container
+    /! Brand and toggle get grouped for better mobile display
+    .navbar-header.page-scroll
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.page-scroll href=root_path  BLOG VINOVA
+    /! Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li.dropdown
+            a.page-scroll data-toggle="dropdown" href="#" 
+              = current_user.name 
+              b.caret
+            ul.dropdown-menu
+              li.divider
+              li
+                = link_to "Đăng Xuất", destroy_user_session_path, method: "delete", class: "page-scroll"
+        - else
+          li.dropdown
+            a.page-scroll data-toggle="dropdown" href="#" 
+              | TÀI KHOẢN
+              b.caret
+            ul.dropdown-menu
+              li
+                a.page-scroll href=new_user_registration_path
+                  span.glyphicon.glyphicon-user
+                  |  ĐĂNG KÝ
+              li
+                a.page-scroll href=new_user_session_path
+                  span.glyphicon.glyphicon-log-in
+                  |  ĐĂNG NHẬP
+    /! /.navbar-collapse
+  /! /.container-fluid

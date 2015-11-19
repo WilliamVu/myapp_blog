@@ -1,0 +1,11 @@
+.container-fluid
+  .container
+    .col-md-6.col-md-offset-3
+    	.well
+	      h2 align="center"  LOGIN WITH EMAIL
+	      .login-form
+	        .input-fields
+	          = simple_form_for @user, url: user_session_path do |f|
+	          	= f.input :email, placeholder: 'Địa chỉ Email'
+	          	= f.input :password, placeholder: 'Mật khẩu của bạn'
+	          	= f.submit 'ĐĂNG NHẬP', class: 'btn btn-primary form-control'

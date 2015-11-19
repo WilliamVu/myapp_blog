@@ -1,0 +1,24 @@
+.container-fluid
+  .container
+    .col-sm-6.col-sm-offset-3
+      .well
+        h2 align="center"  SIGN UP WITH EMAIL
+        .input-fields
+          = simple_form_for @user, url: user_registration_path do |f|
+          	= f.input :name, placeholder: 'Tên Hiển Thị'
+          	= f.input :email, placeholder: 'Địa chỉ email'
+          	= f.input :password, placeholder: 'Mật Khẩu'
+          	= f.input :password_confirmation, placeholder: 'Nhập lại Mật Khẩu'
+          	= f.input :gender, collection: User.genders.slice(:male, :female).keys, label: 'Giới Tính'
+          	= f.input :address, placeholder: 'Địa Chỉ Cá Nhân'
+          	= f.input :phone, placeholder: 'Số điện thoại', label: 'Phone Number'
+          	= f.input :ages, placeholder: 'Tuổi', label: 'Age Group'
+          	= f.label :about_me
+          
+          	= f.text_area :about_me, placeholder: 'Thông tin thêm về bản thân', class: 'form-control', row: '5'
+            br
+          	= f.label :profile_image_id, "Avatar"
+          
+          	= f.file_field :profile_image_id, style: "width: 100%", class: 'form-control'
+            br
+          	= f.submit "ĐĂNG KÝ", class: 'btn btn-primary form-control'
